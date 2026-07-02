@@ -6,20 +6,20 @@
 // ==========================================
 let misLibros = [
     // --- LOTE INGLÉS (Nuevos agregados) ---
-    { id: "libro-1", titulo: "Short Fiction", autor: "H. P. Lovecraft", archivo: "assets/books/h-p-lovecraft_short-fiction.epub", progreso: 15, año: "1928" },
-    { id: "libro-2", titulo: "The Adventures of Tom Sawyer", autor: "Mark Twain", archivo: "assets/books/mark-twain_the-adventures-of-tom-sawyer.epub", progreso: 55, año: "1876" },
-    { id: "libro-3", titulo: "The Picture of Dorian Gray", autor: "Oscar Wilde", archivo: "assets/books/oscar-wilde_the-picture-of-dorian-gray.epub", progreso: 0, año: "1890" },
-    { id: "libro-4", titulo: "A Study in Scarlet", autor: "Arthur Conan Doyle", archivo: "assets/books/arthur-conan-doyle_a-study-in-scarlet.epub", progreso: 85, año: "1887" },
+    { id: "libro-1", titulo: "Short Fiction", autor: "H. P. Lovecraft", archivo: "/books/h-p-lovecraft_short-fiction.epub", progreso: 15, año: "1928" },
+    { id: "libro-2", titulo: "The Adventures of Tom Sawyer", autor: "Mark Twain", archivo: "/books/mark-twain_the-adventures-of-tom-sawyer.epub", progreso: 55, año: "1876" },
+    { id: "libro-3", titulo: "The Picture of Dorian Gray", autor: "Oscar Wilde", archivo: "/books/oscar-wilde_the-picture-of-dorian-gray.epub", progreso: 0, año: "1890" },
+    { id: "libro-4", titulo: "A Study in Scarlet", autor: "Arthur Conan Doyle", archivo: "/books/arthur-conan-doyle_a-study-in-scarlet.epub", progreso: 85, año: "1887" },
 
     // --- LOTE ESPAÑOL (Tu biblioteca anterior) ---
-    { id: "libro-5", titulo: "Erecciones, Eyaculaciones, Exhibiciones", autor: "Charles Bukowski", archivo: "assets/books/Erecciones,Eyaculaciones,Exhibiciones(Charles.Bukowski).epub", progreso: 45, año: "1972" },
-    { id: "libro-6", titulo: "Música de Cañerías", autor: "Charles Bukowski", archivo: "assets/books/Música.de.cañerías(Charles Bukowski).epub", progreso: 12, año: "1983" },
-    { id: "libro-7", titulo: "El Rithmatista", autor: "Brandon Sanderson", archivo: "assets/books/El.Rithmatista(Brandon Sanderson).epub", progreso: 80, año: "2013" },
-    { id: "libro-8", titulo: "El Juguete Rabioso", autor: "Roberto Arlt", archivo: "assets/books/El.juguete.rabioso(Roberto Arlt).epub", progreso: 0, año: "1926" },
-    { id: "libro-9", titulo: "Cadáver Exquisito", autor: "Agustina Bazterrica", archivo: "assets/books/Cadaver.exquisito(Bazterrica Agustina).epub", progreso: 100, año: "2017" }
+    { id: "libro-5", titulo: "Erecciones, Eyaculaciones, Exhibiciones", autor: "Charles Bukowski", archivo: "/books/Erecciones,Eyaculaciones,Exhibiciones(Charles.Bukowski).epub", progreso: 45, año: "1972" },
+    { id: "libro-6", titulo: "Música de Cañerías", autor: "Charles Bukowski", archivo: "/books/Música.de.cañerías(Charles Bukowski).epub", progreso: 12, año: "1983" },
+    { id: "libro-7", titulo: "El Rithmatista", autor: "Brandon Sanderson", archivo: "/books/El.Rithmatista(Brandon Sanderson).epub", progreso: 80, año: "2013" },
+    { id: "libro-8", titulo: "El Juguete Rabioso", autor: "Roberto Arlt", archivo: "/books/El.juguete.rabioso(Roberto Arlt).epub", progreso: 0, año: "1926" },
+    { id: "libro-9", titulo: "Cadáver Exquisito", autor: "Agustina Bazterrica", archivo: "/books/Cadaver.exquisito(Bazterrica Agustina).epub", progreso: 100, año: "2017" }
 ];
 
-let lectorAbierto = null;
+let lectorAbierto = null;gi
 
 // ==========================================
 // 2. ROUTER & RENDERIZADO
