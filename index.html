@@ -52,10 +52,15 @@
     </div>
 
     <div id="reader-screen" class="screen">
-        <button class="btn-action" data-screen="home" style="margin-bottom: 24px;">
+        <button class="btn-action" data-screen="home" style="margin-bottom: 10px;">
             <i class="ph ph-arrow-left"></i> Cerrar libro
         </button>
-        <div id="visor-libro"></div>
+
+        <div id="reader-container" style="position: relative; width: 100%; height: 75vh;">
+            <div id="visor-libro"></div>
+            <div class="nav-hit-zone nav-prev" id="hit-prev"></div>
+            <div class="nav-hit-zone nav-next" id="hit-next"></div>
+        </div>
     </div>
 
     <div id="overlay-info" class="overlay-glassy">
