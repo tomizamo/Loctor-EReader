@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Loctor E-Reader</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.5/jszip.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/epubjs/dist/epub.min.js"></script>
+</head>
+<body>
+
+<div class="main">
+
+    <header class="nav-main">
+        <h1 class="logo">Loctor</h1>
+        <div class="nav-actions" style="display: flex; gap: 12px;">
+            <button class="btn-action" id="btnAbrirBuscador">
+                <i class="ph ph-globe"></i> Explorar API
+            </button>
+            <button class="btn-settings" id="btnSettings"><i class="ph ph-sliders-horizontal"></i></button>
+        </div>
+    </header>
+
+    <div id="home-screen" class="screen active">
+        <div class="caja-centradora-home">
+            <nav class="navbar-books">
+                <div class="section-title">
+                    <i class="ph ph-book-open"></i>
+                    <h2>Recientes</h2>
+                </div>
+                <button class="link-library" data-screen="library">
+                    Ver todo <i class="ph ph-arrow-right"></i>
+                </button>
+            </nav>
+            <section id="grid-home" class="grid-center"></section>
+        </div>
+    </div>
+
+    <div id="library-screen" class="screen">
+        <div class="navbar-books" style="margin-bottom: 24px;">
+            <div class="section-title">
+                <i class="ph ph-books"></i>
+                <h2>Mi Biblioteca</h2>
+            </div>
+            <button class="btn-action" data-screen="home">
+                <i class="ph ph-arrow-left"></i> Volver
+            </button>
+        </div>
+        <section id="grid-library" class="grid-left"></section>
+    </div>
+
+    <div id="reader-screen" class="screen">
+        <button class="btn-action" data-screen="home" style="margin-bottom: 24px;">
+            <i class="ph ph-arrow-left"></i> Cerrar libro
+        </button>
+        <div id="visor-libro"></div>
+    </div>
+
+    <div id="overlay-info" class="overlay-glassy">
+        <div class="overlay-content">
+            <button class="btn-close-glassy" id="closeOverlayBtn"><i class="ph ph-x"></i></button>
+            <div class="info-layout">
+                <div class="info-left">
+                    <img id="detail-portada" src="" alt="Portada">
+                </div>
+                <div class="info-right">
+                    <h2 id="detail-titulo">Cargando...</h2>
+                    <h3 id="detail-autor" class="text-mute"></h3>
+                    <div class="detail-divider"></div>
+                    <h4>Sinopsis</h4>
+                    <div id="detail-sinopsis" class="sinopsis-box"></div>
+                    <button id="btn-iniciar-lectura" class="btn-action" style="margin-top: auto; width: fit-content;">
+                        <i class="ph ph-book-open"></i> Leer ahora
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-search" class="modal-overlay">
+        <div class="modal-content" style="max-width: 800px; max-height: 80vh; display: flex; flex-direction: column;">
+            <div class="modal-header">
+                <h2>Explorar Archivos</h2>
+                <button class="btn-close-modal" id="closeSearchModal"><i class="ph ph-x"></i></button>
+            </div>
+
+            <div class="search-controls" style="display: flex; gap: 8px; margin-bottom: 24px;">
+                <input type="text" id="searchInput" placeholder="Buscar título o autor..." style="flex: 1; padding: 12px; background: var(--bg); border: 1px solid var(--border); color: var(--text-primary); border-radius: 6px; font-family: var(--font-sans);">
+
+                <select id="langFilter" style="padding: 12px; background: var(--bg); border: 1px solid var(--border); color: var(--text-primary); border-radius: 6px; font-family: var(--font-sans);">
+                    <option value="">Cualquier idioma</option>
+                    <option value="es">Español</option>
+                    <option value="en">Inglés</option>
+                </select>
+
+                <button id="btnEjecutarBusqueda" class="btn-action"><i class="ph ph-magnifying-glass"></i> Buscar</button>
+            </div>
+
+            <div id="grid-explore" class="grid-left" style="overflow-y: auto; padding-right: 8px; flex: 1;">
+                <p style="color: var(--text-secondary); text-align: center; width: 100%;">Usá el buscador de arriba para conectar con Gutendex.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-settings" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Preferencias</h2>
+                <button class="btn-close-modal" id="closeSettingsModal"><i class="ph ph-x"></i></button>
+            </div>
+            <div class="modal-body">
+                <button class="btn-action" style="width: 100%; justify-content: center;">Modo Oscuro</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

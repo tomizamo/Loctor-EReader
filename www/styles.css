@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&display=swap');
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg: #0F1011;
+    --card-bg: #16181A;
+    --border: #24272A;
+    --text-primary: #F5F5F7;
+    --text-secondary: #7E848C;
+    --accent: #00FF66;
+    --font-logo: 'Libre Baskerville', serif;
+    --font-titulos: 'Literata', serif;
+    --font-mono: monospace;
+    --font-sans: 'Inter', -apple-system, system-ui, sans-serif;
+}
+
+body { background-color: var(--bg); color: var(--text-primary); padding-top: 24px; min-height: 100vh; }
+.main { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 4%; }
+
+/* ===== NAVEGACIÓN Y BOTONES ===== */
+.nav-main { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 16px; margin-bottom: 32px; }
+.logo { font-size: 24px; font-weight: 700; font-family: var(--font-logo); }
+.btn-settings { background: none; border: none; color: var(--text-secondary); font-size: 24px; cursor: pointer; transition: color 0.2s; }
+.btn-settings:hover { color: var(--text-primary); }
+.btn-action { background-color: var(--card-bg); border: 1px solid var(--border); color: var(--text-primary); padding: 8px 16px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; gap: 8px; font-family: var(--font-sans); }
+.btn-action:hover { border-color: var(--text-primary); }
+
+/* ===== SISTEMA DE PANTALLAS ===== */
+.screen { display: none; }
+.screen.active { display: block; }
+.caja-centradora-home { max-width: 872px; margin: 0 auto; width: 100%; }
+
+.navbar-books { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; font-family: var(--font-sans); }
+.section-title { display: flex; align-items: center; gap: 8px; font-size: 20px; }
+.link-library { color: var(--text-secondary); background: none; border: none; cursor: pointer; font-size: 14px; }
+
+/* ===== GRILLAS ===== */
+.grid-center { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: 24px; }
+.grid-left { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 24px; justify-content: start; }
+
+/* ===== TARJETA DE LIBRO (REDISEÑO) ===== */
+.card-libro {
+    font-family: var(--font-sans);
+    background-color: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    min-height: 380px;
+    flex-shrink: 0;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+.card-libro:hover { border-color: var(--text-primary); }
+
+.portada-img { width: 100%; aspect-ratio: 2/3; border-radius: 8px; object-fit: cover; box-shadow: 0 8px 16px rgba(0,0,0,0.4); margin-bottom: 12px; }
+
+/* Tipografía compacta y alineada */
+.card-titulo { font-size: 14px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; margin-bottom: 2px; }
+.card-autor { font-family: var(--font-titulos); font-size: 12px; color: var(--text-secondary); text-align: center; margin-bottom: 2px; }
+.card-year { font-family: var(--font-mono); font-size: 10px; color: var(--text-secondary); text-align: center; margin-bottom: auto; /* Empuja progreso y botón al fondo */ }
+
+/* Progreso y Botón Full Width */
+.progress-track { width: 100%; height: 4px; background: var(--border); border-radius: 2px; margin-top: 12px; margin-bottom: 8px; }
+.progress-fill { height: 100%; background: var(--accent); border-radius: 2px; }
+
+.btn-abrir-info { background: #1A1C1E; border: 1px solid var(--border); color: var(--text-secondary); font-size: 11px; font-family: var(--font-mono); padding: 8px; border-radius: 4px; width: 100%; cursor: pointer; transition: all 0.2s; margin-top: 4px; }
+.btn-abrir-info:hover { color: var(--text-primary); border-color: var(--text-primary); }
+
+/* ===== OVERLAYS Y MODALES ===== */
+.overlay-glassy, .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 1000; background-color: rgba(15, 16, 17, 0.6); backdrop-filter: blur(12px); justify-content: center; align-items: center; }
+.overlay-glassy.active, .modal-overlay.active { display: flex; }
+.overlay-content, .modal-content { background-color: var(--card-bg); border: 1px solid var(--border); border-radius: 16px; padding: 32px; width: 90%; position: relative; box-shadow: 0 24px 48px rgba(0,0,0,0.5); }
+.btn-close-glassy, .btn-close-modal { position: absolute; top: 20px; right: 20px; background: none; border: none; color: var(--text-secondary); font-size: 24px; cursor: pointer; transition: color 0.2s; }
+.btn-close-glassy:hover, .btn-close-modal:hover { color: var(--text-primary); }
+
+.info-layout { display: flex; gap: 40px; height: 100%; max-height: 60vh; }
+.info-left { flex: 0 0 220px; }
+.info-left img { width: 100%; height: 100%; object-fit: cover; border-radius: 8px; }
+.info-right { flex: 1; display: flex; flex-direction: column; overflow: hidden; }
+.info-right h2 { font-size: 32px; font-family: var(--font-titulos); margin-bottom: 4px; }
+.info-right h3.text-mute { color: var(--text-secondary); font-weight: 400; margin-bottom: 24px; font-family: var(--font-sans); }
+.detail-divider { height: 1px; background: var(--border); margin-bottom: 24px; }
+.sinopsis-box { color: var(--text-secondary); font-size: 14px; line-height: 1.6; overflow-y: auto; padding-right: 12px; font-family: var(--font-sans); margin-bottom: 24px; }
+
+/* ===== LECTOR ===== */
+#visor-libro { width: 100%; height: 75vh; background-color: #F5F5F7; border-radius: 8px; overflow: hidden; }
+
+
+/*mobile*/
+@media (max-width: 600px) {
+    /* 1. Reducimos los espacios vacíos (gaps) para que los libros respiren mejor */
+    .grid-center, .grid-left {
+        gap: 12px;
+    }
+
+    /* 2. Obligamos a la Biblioteca y al Buscador a tener exactamente 2 columnas */
+    .grid-left {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* 3. Magia matemática: cada tarjeta mide el 50% de la pantalla, menos el espacio del gap */
+    .card-libro {
+        width: calc(50% - 6px);
+        min-height: 320px; /* Las hacemos un poquito más petisas para equilibrar */
+    }
+
+    /* 4. En las grillas de 2 columnas, que la tarjeta ocupe todo su carril */
+    #grid-library .card-libro, #grid-explore .card-libro {
+        width: 100%;
+    }
+
+    /* 5. Centramos la grilla del Home para que no quede tirada a la izquierda */
+    .grid-center {
+        justify-content: center;
+    }
+}
