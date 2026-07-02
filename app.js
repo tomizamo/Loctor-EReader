@@ -19,7 +19,7 @@ let misLibros = [
     { id: "libro-9", titulo: "Cadáver Exquisito", autor: "Agustina Bazterrica", archivo: "/books/Cadaver.exquisito(Bazterrica Agustina).epub", progreso: 100, año: "2017" }
 ];
 
-let lectorAbierto = null;gi
+let lectorAbierto = null;
 
 // ==========================================
 // 2. ROUTER & RENDERIZADO
